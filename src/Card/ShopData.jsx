@@ -12,7 +12,7 @@ const ProductComponent = ({ product, onReadMore }) => {
     <ToastContainer/>
     
      
-    <div className='mt-8 rounded-[10px] flex flex-col mb-5 items-center justify-between bg-slate-50 text-white h-[28rem] w-[19rem] shadow-lg shadow-gray-500' id='card-image' onClick={onReadMore}>
+    <div className='rounded-[10px] flex flex-col mb-5 items-center justify-between bg-slate-50 text-white h-[28rem] w-[19rem] shadow-lg shadow-gray-500' id='card-image' onClick={onReadMore}>
       <div className='w-full flex items-center justify-center .card-image ' >
         <img src={product.productImage} className='rounded-lg h-[20rem] w-[19rem] mt-[5px]'  alt={product.name} />
       </div>

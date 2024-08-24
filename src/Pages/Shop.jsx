@@ -67,15 +67,15 @@ const Shop = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex mt-4 ml-14">
+      <div className="flex mt-28 ml-14">
         {/* Sidebar */}
         <div className="w-1/4">
           <Sidebar onFilterChange={setFilteredProducts} />
         </div>
 
         {/* Products Section */}
-        <div className="flex-1 ml-[-180px] mt-[60px] mr-[-30px]">
-          <div className='mt-8 flex flex-wrap justify-center gap-10'>
+        <div className="flex-1 ml-[-180px] mr-[-30px]">
+          <div className='flex flex-wrap justify-center gap-10'>
             {loading ? (
               <p>Loading products...</p>
             ) : error ? (

@@ -13,20 +13,9 @@ const HomePage = () => {
  
   return (
     <>  
-     
-     
       <HomeCarousel />
-      <Featured/>
-      
-      <Scroll/>
-
-     
-
-
-
-      
-   
-
+      {/* <Featured/> */}
+      {/* <Scroll/> */}
     </>
   );
 }

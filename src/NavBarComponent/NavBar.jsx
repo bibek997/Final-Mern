@@ -31,7 +31,7 @@ const NavBar = () => {
 
 
   return (
-    <nav className="h-16 w-full bg-white fixed z-10 flex items-center justify-between px-6 shadow-md" data-aos="fade-down">
+    <nav className="h-16 w-full bg-white fixed z-10 flex items-center justify-between px-6 shadow-md">
       <img className="h-10 w-auto" src={FashionFusionLogo} alt="logo" />
 
       <ul className="flex gap-10 text-black text-lg">

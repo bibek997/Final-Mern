@@ -28,18 +28,18 @@ function Sidebar({ onFilterChange }) {
       const { data } = await axiosInstance.post('/api/products/product-filters', { checked, radio });
       onFilterChange(data?.products);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   const handleFilter = (value, id) => {
-    let all = [...checked];
+    let updatedChecked = [...checked];
     if (value) {
-      all.push(id);
+      updatedChecked.push(id);
     } else {
-      all = all.filter((category) => category !== id);
+      updatedChecked = updatedChecked.filter(category => category !== id);
     }
-    setChecked(all);
+    setChecked(updatedChecked);
     filterProduct(); // Fetch products after updating filters
   };
 
@@ -48,33 +48,34 @@ function Sidebar({ onFilterChange }) {
   }, [checked, radio]);
 
   return (
-    <>
-      <div className=" ml-[-40px]  mr-2 flex pt-[130px]">
-        <div className='bg-gray-100 h-[900px] w-[200px] '>
-          <h1 className='text-[black] p-5 text-2xl'>Category</h1>
-          <div className="flex flex-col ml-4">
-            {categories?.map(category => (
-              <Checkbox
-                className='text-black text-[18px]'
-                key={category._id}
-                onChange={(e) => handleFilter(e.target.checked, category._id)}>
-                {category.name}
-              </Checkbox>
-            ))}
-          </div>
-          <h1 className='text-[black] p-5 text-2xl'>Price</h1>
-          <div className="flex flex-col ml-4">
-            <Radio.Group onChange={e => setRadio(e.target.value)}>
-              {Prices?.map(p => (
-                <div key={p._id} className="">
-                  <Radio className="text-black text-[18px]" value={p.array}>{p.name}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
-          </div>
-        </div>
+    <div className="bg-gray-100 w-64 p-4 h-screen border-r border-gray-300">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-4">Category</h1>
+      <div className="flex flex-col mb-6">
+        {categories.map(category => (
+          <Checkbox
+            className='text-gray-700 text-lg mb-2'
+            key={category._id}
+            onChange={(e) => handleFilter(e.target.checked, category._id)}
+          >
+            {category.name}
+          </Checkbox>
+        ))}
       </div>
-    </>
+      <h1 className="text-2xl font-semibold text-gray-800 mb-4">Price</h1>
+      <div className="flex flex-col">
+        <Radio.Group onChange={e => setRadio(e.target.value)}>
+          {Prices.map(p => (
+            <Radio
+              className="text-gray-700 text-lg mb-2"
+              key={p._id}
+              value={p.array}
+            >
+              {p.name}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
+    </div>
   );
 }
 
